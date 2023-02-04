@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+      
+        <!-- Title -->
+        <title>MarketSTD</title>
+      
+        <!-- Meta -->
+        <meta name="description" content="description" />
+        <meta name="author" content="author" />
+    
+        <script src="https://kit.fontawesome.com/f3b2659269.js" crossorigin="anonymous"></script>
+        <!-- Styles & Scripts -->
+        
+        <!-- Use this if load Bulma from Nodes -->
+        <!-- <link rel="stylesheet" href="{{url_for('static',filename='css/mystyles.css')}}"> -->
+        
+        <!-- Define extra CSS -->
+        <!-- <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}"> -->
+
+        <!-- Use this if load Bulma from CDN -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+
+        <!-- Favicon -->
+
+        <script>
+            var current_user = {'is_authen': false}; //  JSON.parse(u);
+            console.log(current_user);
+
+        </script>
+    </head>
+    <body class="layout-documentation page-components main-body" id="top-of-site">
+        
+        {% include 'nav.html' %}
+
+        <div class="container is-fluid" id="awesome-page" style="height: 100vh; top: 55px;">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+
+        <footer class="footer has-text-centered" style="margin-top: 15px;padding-bottom: 115px">
+            <div class="footer_links">
+                <a class="tab-link" href="#">link</a>
+                <span class="footer_dot"> • </span>
+                <a class="tab-link" href="#">link</a>
+                <span class="footer_dot"> • </span>
+                <a class="tab-link" href="#">link</a>
+                <span class="footer_dot"> • </span>
+                <a class="tab-link" href="#">link</a>
+                <span class="footer_dot"> • </span>
+                <a class="tab-link" href="#">link</a>
+            
+            </div>
+            Copyright © 2007-2022 YOURAPP.com. All Rights Reserved.
+        </footer>
+
+
+
+        <script>
+            function fitSize() {
+                var width = $(window).width(); 
+                if (width > 1024) {
+                    //set is-fluid
+                    var docs = document.getElementById('awesome-page');
+                    // docs.style.paddingTop  = '150px';
+                    document.getElementById('navTop').classList.add('navbar', 'is-fixed-top', 'is-flex', 'is-flex-direction-column');
+                    var mainTile = document.getElementsByClassName('main-tile-content');
+                    mainTile[0].classList.remove('is-12');
+                    mainTile[0].classList.add('is-10');
+                }
+                else if (width <= 1024) {
+                    //set is-widescreen
+                    var docs = document.getElementById('awesome-page');
+                    docs.style.paddingTop  = '22px';
+                    document.getElementById('navTop').classList.remove('navbar', 'is-fixed-top', 'is-flex', 'is-flex-direction-column');
+                    
+                    var mainTile = document.getElementsByClassName('main-tile-content');
+                    mainTile[0].classList.remove('is-10');
+                    mainTile[0].classList.add('is-12');
+                }
+                yInPixel = $(this).height() * (PER / 100);
+
+            }
+            var yInPixel=300, PER=2;
+            let btnGoTop = document.getElementById("btnGoTop");
+            let nav = document.getElementById('topNav');
+
+            window.onresize = function() { fitSize(); }
+            window.onload = function() { fitSize(); }
+            window.onscroll = function() {
+                var pageOffset = document.documentElement.scrollTop || document.body.scrollTop;
+                if (btnGoTop) btnGoTop.style.visibility = (pageOffset > 1000) ? 'visible' : 'hidden';
+
+                if (nav) {
+                    if(pageOffset > yInPixel)
+                        nav.classList.add('is-hidden');
+                    else
+                        nav.classList.remove('is-hidden');
+                }
+            };
+        </script>
+    </body>
+</html>

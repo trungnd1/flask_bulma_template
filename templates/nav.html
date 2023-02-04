@@ -1,0 +1,159 @@
+<nav id="navTop" class="navbar is-fixed-top is-flex is-flex-direction-column">
+
+    <!--  is-bg-light4 has-text-weight-medium is-uppercase is-underlined -->
+    <nav class="navbar is-headerbg" role="navigation" aria-label="main navigation">
+        <div class="container is-fluid ">
+
+            <div class="navbar-brand">
+            <a style="margin-left: 0px;" role="button" id="navToggleLeft" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+            <a class="navbar-item" href="" id="navSiteLogo">
+                <span class="is-size-5 has-text-weight-normal has-text-bg-dark4 is-lowercase">your</span>
+                <span class="is-size-5 has-text-weight-bold has-text-primary">APP</span>
+            </a>
+            <a role="button" id="navToggleRight" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="nav-menu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+            </div>
+            
+            <!-- RESPONSIVE MENUS -->
+            <div id="nav-menu-left" class="navbar-menu is-shadowless is-hidden-desktop">
+                <ul class="menu-list">
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" href="/">
+                            <span>HOME</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" href="/about">
+                            <span>ABOUT</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" href="/faqs">
+                            <span>FAQs</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a class="nav-link" href="/docs">
+                            <span>DOCS</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="is-flex is-align-items-center is-justify-content-center is-size-4-touch">
+                    <ul class="is-flex mb-0">
+                        <li><a class="px-2 nav-link" rel="nofollow" href="/" target="_blank"><i class="fab fa-facebook"></i></a> </li>
+                        <li><a class="px-2 nav-link" rel="nofollow" href="/" target="_blank"><i class="fab fa-instagram"></i></a> </li>
+                        <li><a class="px-2 nav-link" rel="nofollow" href="/" target="_blank"><i class="fab fa-twitter"></i></a> </li>
+                        <li><a class="px-2 nav-link" rel="nofollow" href="/" target="_blank"><i class="fab fa-youtube"></i></a> </li>
+                        <li><a class="px-2 nav-link" rel="nofollow" href="/" target="_blank"><i class="fab fa-linkedin-in"></i></a> </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- NAV MENU  -->
+            <div id="nav-menu" class="navbar-menu is-shadowless has-text-weight-normal">
+                
+                <div class="navbar-start">
+                    <a class="navbar-item" href="#">
+                        <span class="icon has-text-info"><i class="fas fa-newspaper"></i></span>
+                        <span class="">Menu</span>
+                    </a>
+
+                    <a class="navbar-item" href="#">
+                        <span class="icon has-text-info"><i class="fas fa-filter"></i></span>
+                        <span class="">Menu</span>
+                    </a>
+
+                </div>
+                        
+                
+                <div class="navbar-end">
+                    <div class="navbar-item has-dropdown is-hoverable" id="btnMoreTools">
+                        <a class="navbar-link">
+                            <span class="icon has-text-info"><i class="fas fa-tools"></i></span>
+                            <span class="">Menu</span>
+                        </a>
+                        <div class="navbar-dropdown is-hide" id="navCongcu">
+                            <a class="navbar-item" href="#">Sub menu</a>
+                            <a class="navbar-item" href="#">Sub menu</a>
+                            <a class="navbar-item" href="#">Sub menu</a>
+                            <a class="navbar-item" href="#">Sub menu</a>
+                        </div>
+                    </div>
+
+
+                    <div class="navbar-item">
+                        <a class="button is-danger" href="#">
+                        <span class="icon is-medium">
+                            <i class="fas fa-sign-in-alt"></i>
+                        </span>
+                        <span>Login</span>
+                        </a>   
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+</nav>
+<!-- <script type="text/javascript" src="{{url_for('static',filename='js/autocomplete.js')}}"></script> -->
+<script>
+
+$(document).ready(function(){
+    $('#navSiteLogo').attr('href', domain_root);
+
+    var $toggleLeft = $('#navToggleLeft');
+    var $menuLeft = $('#nav-menu-left');
+
+    $toggleLeft.click(function() {
+        $(this).toggleClass('is-active');
+        $menuLeft.toggleClass('is-active');
+
+        $toggleRight.removeClass('is-active');
+        $menuRight.removeClass('is-active');
+    });
+
+    var $toggleRight = $('#navToggleRight');
+    var $menuRight = $('#nav-menu');
+    $toggleRight.click(function() {
+        $(this).toggleClass('is-active');
+        $menuRight.toggleClass('is-active');
+        
+        $toggleLeft.removeClass('is-active');
+        $menuLeft.removeClass('is-active');
+    });
+
+    var $btnMoreTools = $('#btnMoreTools');
+    var $navCongcu = $('#navCongcu');
+    $btnMoreTools.click(function() {
+        $navCongcu.toggleClass('is-hide');
+    });
+
+    var $btnMoreDulieu = $('#btnMoreDulieu');
+    var $navDulieu = $('#navDulieu');
+    $btnMoreDulieu.click(function() {
+        $navDulieu.toggleClass('is-hide');
+    });
+
+    var $btnMoreReport = $('#btnMoreReport');
+    var $navReport = $('#navMoreReport');
+    $btnMoreReport.click(function() {
+        $navReport.toggleClass('is-hide');
+    });
+
+    var $btnUserToggle = $('#btnUserToggle');
+    var $navUserMenu = $('#navUserMenu');
+    $btnUserToggle.click(function() {
+        $navUserMenu.toggleClass('is-hide');
+    });
+
+});
+</script>
